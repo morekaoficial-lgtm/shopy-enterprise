@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopy Enterprise | Mayoreo de Accesorios para Celular y Tecnología en México</title>
+<style>
+:root {
+  --primary: #1E5B9E;
+  --primary-light: #4A90D9;
+  --primary-dark: #0E3A66;
+  --secondary: #0F2D4E;
+  --accent: #F59E0B;
+  --bg: #FFFFFF;
+  --surface: #F2F7FC;
+  --text: #1E293B;
+  --text-light: #5B6B7F;
+  --border: #DCE6F0;
+  --radius: 12px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- NAV --- */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+
+.nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 8px 16px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+}
+.nav-brand img {
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+/* --- HERO --- */
+.hero {
+  padding: 160px 0 100px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+}
+
+.hero-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 50px;
+  background: rgba(30,91,158,0.08);
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: var(--secondary);
+  letter-spacing: -0.02em;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  max-width: 640px;
+  margin: 0 auto 40px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* --- BUTTONS --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30,91,158,0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* --- SOCIAL PROOF --- */
+.social-proof {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.section-label {
+  text-align: center;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+  margin-bottom: 32px;
+  font-weight: 600;
+}
+
+.logo-strip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.logo-item {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-light);
+  opacity: 0.5;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 32px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.testimonial-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+}
+
+.testimonial-icon {
+  color: var(--primary-light);
+  margin-bottom: 16px;
+}
+
+.testimonial-quote {
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.author-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.author-role {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+/* --- FEATURES --- */
+.features {
+  padding: 100px 0;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 64px;
+}
+
+.section-header h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--secondary);
+}
+
+.section-header p {
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.feature-card {
+  padding: 32px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+
+.feature-card:hover {
+  border-color: var(--primary-light);
+  box-shadow: 0 4px 24px rgba(30,91,158,0.08);
+  transform: translateY(-2px);
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: rgba(30,91,158,0.08);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.feature-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.feature-desc {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* --- PRICING --- */
+.pricing {
+  padding: 100px 0;
+  background: var(--surface);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.tier-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.tier-highlighted {
+  border-color: var(--primary);
+  box-shadow: 0 8px 32px rgba(30,91,158,0.12);
+  transform: scale(1.02);
+}
+
+.tier-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: #fff;
+  padding: 4px 16px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tier-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.tier-desc {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+.tier-price {
+  margin-bottom: 32px;
+}
+
+.price-amount {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+.price-period {
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+.tier-features {
+  list-style: none;
+  margin-bottom: 32px;
+}
+
+.tier-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.tier-features li svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.tier-card .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* --- CTA --- */
+.cta-section {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.cta-box {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: calc(var(--radius) * 2);
+  padding: 80px 40px;
+  color: #fff;
+}
+
+.cta-box h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.cta-box p {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  margin-bottom: 40px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-box .btn {
+  background: #fff;
+  color: var(--primary);
+  border-color: #fff;
+  font-size: 1.1rem;
+  padding: 16px 36px;
+}
+
+.cta-box .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* --- FOOTER --- */
+.footer {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .hero { padding: 120px 0 60px; }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+  .nav-links { display: none; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .features-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .tier-highlighted { transform: none; }
+  .cta-box { padding: 60px 24px; }
+  .cta-box h2 { font-size: 1.8rem; }
+  .logo-strip { gap: 24px; }
+}
+
+/* ====== Stats dinámicos ====== */
+.stats-animated { animation: fadeInUp 0.8s ease-out; }
+.stats-brands-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.stats-brands-logos img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(30%);
+  transition: all 0.3s;
+}
+.stats-brands-logos img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.08);
+}
+.stats-mps-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.stats-mps-logos img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.75;
+  transition: all 0.3s;
+}
+.stats-mps-logos img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== Brand cards (logos reales) ====== */
+.brand-card { text-align: center; }
+.brand-logo-wrap {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.brand-logo-img {
+  max-height: 55px;
+  max-width: 180px;
+  object-fit: contain;
+}
+
+/* ====== Counter animation ====== */
+.counter { display: inline-block; }
+
+</style>
+
+<meta name="description" content="Distribuidor mayorista de tecnología y accesorios para celular en México. +5 años, +300 distribuidores, precios de mayoreo por caja master y garantías de hasta 18 meses. Moreka, Nebro y G-Tide.">
+<meta name="keywords" content="mayoreo de accesorios para celular, proveedor de tecnología para distribuidores en México, precios de mayoreo para revendedores, compra por caja master, distribuidor de cargadores y audífonos, mejores precios del mercado mayorista, mayoreo en Guadalajara, proveedores de tecnología en Jalisco">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.shopyenterprise.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shopy Enterprise | Mayoreo de Tecnología y Accesorios en México">
+<meta property="og:description" content="+5 años, +300 distribuidores, garantías de hasta 18 meses. El mayorista líder en tecnología y accesorios en México.">
+<meta property="og:url" content="https://www.shopyenterprise.com/">
+<meta property="og:locale" content="es_MX">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WholesaleStore",
+  "name": "Shopy Enterprise",
+  "url": "https://www.shopyenterprise.com",
+  "email": "ventas@shopyenterprise.com",
+  "foundingDate": "2020",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "C. Colón 172, Zona Centro",
+    "postalCode": "44100",
+    "addressLocality": "Guadalajara",
+    "addressRegion": "Jalisco",
+    "addressCountry": "MX"
+  },
+  "brand": ["Moreka", "Nebro", "G-Tide"],
+  "openingHours": "Mo-Fr 10:30-19:00; Sa 10:30-17:00"
+}
+</script>
+<style>
+/* ====== Secciones personalizadas Shopy Enterprise ====== */
+.accent-text { color: var(--primary); }
+
+/* --- Quiénes Somos --- */
+.about { padding: 60px 0 40px; }
+.about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: center; }
+.about-kicker { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 12px; }
+.about-text h2 { font-size: 2.1rem; font-weight: 800; color: var(--secondary); line-height: 1.2; margin-bottom: 20px; }
+.about-text p { color: var(--text-light); margin-bottom: 16px; }
+.about-list { list-style: none; margin-top: 8px; }
+.about-list li { padding: 8px 0 8px 26px; position: relative; color: var(--text); font-size: 0.98rem; }
+.about-list li::before { content: "▸"; color: var(--accent); position: absolute; left: 4px; font-weight: 700; }
+.about-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.about-panel-card { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: var(--radius); padding: 28px 20px; text-align: center; color: #fff; }
+.about-panel-card:nth-child(2), .about-panel-card:nth-child(3) { background: var(--surface); color: var(--secondary); border: 1px solid var(--border); }
+.apc-value { font-size: 2.2rem; font-weight: 800; line-height: 1.1; }
+.apc-label { font-size: 0.85rem; opacity: 0.85; margin-top: 6px; }
+
+/* --- Catálogos --- */
+.catalogs { padding: 100px 0; background: var(--bg); }
+.filter-chips { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+.chip { padding: 8px 18px; border-radius: 50px; border: 1.5px solid var(--border); background: var(--bg); color: var(--text-light); font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: var(--font); }
+.chip:hover { border-color: var(--primary); color: var(--primary); }
+.chip.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+.catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+.catalog-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 32px 28px; transition: all 0.25s; display: flex; flex-direction: column; }
+.catalog-card:hover { border-color: var(--primary-light); box-shadow: 0 6px 24px rgba(30,91,158,0.10); transform: translateY(-3px); }
+.catalog-icon { font-size: 2rem; margin-bottom: 16px; }
+.catalog-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+.catalog-card p { color: var(--text-light); font-size: 0.92rem; flex-grow: 1; }
+.catalog-tags { font-size: 0.78rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin: 14px 0 18px; }
+.catalog-card .btn { justify-content: center; }
+.catalog-note { text-align: center; color: var(--text-light); font-size: 0.9rem; margin-top: 36px; }
+.catalog-note a { color: var(--primary); }
+
+/* --- Política de garantías --- */
+.policy { padding: 0 0 100px; background: var(--surface); }
+.policy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.policy-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
+.policy-card h3 { font-size: 1.05rem; margin-bottom: 14px; }
+.policy-card ul { list-style: none; }
+.policy-card li { padding: 6px 0 6px 20px; position: relative; color: var(--text-light); font-size: 0.92rem; }
+.policy-card li::before { content: "•"; color: var(--primary); position: absolute; left: 4px; font-weight: 700; }
+.policy-card em { font-size: 0.85rem; }
+.policy-address { margin-top: 28px; text-align: center; background: var(--bg); border: 1px dashed var(--primary-light); border-radius: var(--radius); padding: 18px 24px; color: var(--text); font-size: 0.95rem; }
+.policy-address a { color: var(--primary); font-weight: 600; }
+
+/* --- Contacto --- */
+.contact { padding: 100px 0; background: var(--bg); }
+.contact-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; }
+.contact-form { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-field { margin-bottom: 16px; }
+.form-field label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--secondary); }
+.form-field input, .form-field select, .form-field textarea { width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.95rem; font-family: var(--font); color: var(--text); background: #fff; transition: border-color 0.2s; }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--primary); }
+.form-note { font-size: 0.8rem; color: var(--text-light); margin-top: 12px; text-align: center; }
+.contact-info { display: flex; flex-direction: column; gap: 20px; }
+.wa-cta { display: flex; align-items: center; gap: 16px; background: #25D366; color: #fff; border-radius: var(--radius); padding: 20px 24px; text-decoration: none; font-size: 0.95rem; line-height: 1.4; transition: all 0.2s; }
+.wa-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.35); }
+.info-block { border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; }
+.info-block h4 { font-size: 0.95rem; margin-bottom: 8px; color: var(--secondary); }
+.info-block p { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; }
+.info-block a { color: var(--primary); text-decoration: none; font-weight: 600; }
+.map-wrap { margin-top: 48px; }
+
+/* --- Footer --- */
+.footer { text-align: left; padding: 56px 0 28px; background: var(--secondary); color: rgba(255,255,255,0.75); border-top: none; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-bottom: 36px; }
+.footer-col strong { color: #fff; display: block; margin-bottom: 10px; font-size: 0.95rem; }
+.footer-col p { font-size: 0.85rem; line-height: 1.7; }
+.footer-col a { color: var(--primary-light); text-decoration: none; }
+.footer-col a:hover { text-decoration: underline; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 20px; text-align: center; font-size: 0.8rem; }
+
+.nav-links a.btn-primary { color: #fff !important; }
+.nav-links a.btn-primary:hover { color: #fff !important; background: var(--primary-dark); }
+
+/* --- WhatsApp flotante --- */
+.wa-float { position: fixed; bottom: 24px; right: 24px; width: 58px; height: 58px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(0,0,0,0.25); z-index: 200; transition: transform 0.2s; }
+.wa-float:hover { transform: scale(1.08); }
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .about-grid, .contact-grid { grid-template-columns: 1fr; }
+  .nav-links { display: flex !important; gap: 16px; overflow-x: auto; max-width: 62vw; padding-bottom: 4px; }
+  .nav-links a { white-space: nowrap; }
+}
+@media (max-width: 768px) {
+  .form-row { grid-template-columns: 1fr; }
+  .about-panel { grid-template-columns: 1fr 1fr; }
+  .contact-form { padding: 24px; }
+  .about-text h2 { font-size: 1.6rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <a href="#hero" class="nav-brand"><img src="logo.png" alt="Shopy Enterprise - Distribuidor mayorista de tecnología en México" style="height:90px;display:block"></a>
+    <ul class="nav-links">
+      <li><a href="#nosotros">Quiénes Somos</a></li>
+      <li><a href="#marcas">Marcas</a></li>
+      <li><a href="#catalogos">Catálogos</a></li>
+      <li><a href="#garantias">Garantías</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#contacto" class="btn btn-primary" style="padding:8px 20px;font-size:0.9rem">Solicitar Cotización</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-tag">Distribuidor Mayorista B2B · Guadalajara, Jalisco · Desde el año 2020</div>
+    <h1>Más de 5 años impulsando el comercio electrónico en México</h1>
+    <p>Distribución mayorista de tecnología y accesorios con la garantía y el respaldo que tu negocio merece. Marcas líderes, precios de mayoreo y una red de más de 300 distribuidores en todo el país.</p>
+    <div class="hero-actions">
+      <a href="#contacto" class="btn btn-primary">
+        Solicitar Cotización <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polyline points="12 5 19 12 12 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#catalogos" class="btn btn-outline">
+        Descargar Catálogos
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- QUIENES SOMOS -->
+<section class="about" id="nosotros">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="about-kicker">Quiénes Somos</div>
+        <h2>El socio estratégico detrás de <span class="accent-text">+300 distribuidores</span> en México</h2>
+        <p>Shopy Enterprise nació en el año 2020 en Guadalajara con una misión clara: ser el aliado mayorista que los comercios de México necesitaban. Comenzamos distribuyendo la marca Moreka y hoy integramos un portafolio que responde a cada segmento del mercado: <strong>Moreka (2020)</strong>, <strong>G-Tide (2025)</strong> y <strong>Nebro (2026)</strong>.</p>
+        <p>Nuestra fortaleza no está solo en el volumen, sino en la confianza construida durante años: precios de mayoreo protegidos, catálogos actualizados cada mes y garantías reales que respaldan cada pieza que vendes.</p>
+        <ul class="about-list">
+          <li><strong>5+ años</strong> impulsando el comercio electrónico en México</li>
+          <li><strong>300+ distribuidores</strong> activos a nivel nacional</li>
+          <li><strong>Canales separados:</strong> mayoreo, menudeo y marketplaces sin competir entre sí</li>
+          <li><strong>Garantía líder:</strong> 90% del catálogo con mínimo 1 año; Nebro con 18 meses</li>
+        </ul>
+      </div>
+      <div class="about-panel">
+        <div class="about-panel-card">
+          <div class="apc-value">2020</div>
+          <div class="apc-label">Año de fundación</div>
+        </div>
+        <div class="about-panel-card">
+          <div class="apc-value">3</div>
+          <div class="apc-label">Marcas en portafolio</div>
+        </div>
+        <div class="about-panel-card">
+          <div class="apc-value">4</div>
+          <div class="apc-label">Tiendas en línea propias</div>
+        </div>
+        <div class="about-panel-card">
+          <div class="apc-value">8</div>
+          <div class="apc-label">Marketplaces activos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="social-proof" id="social-proof">
+  <div class="container">
+    <div class="section-label">Presentes en los principales marketplaces de México</div>
+    <div class="logo-strip">
+      <div class="logo-item">Mercado Libre</div>
+<div class="logo-item">Amazon</div>
+<div class="logo-item">Walmart</div>
+<div class="logo-item">TikTok Shop</div>
+<div class="logo-item">AliExpress</div>
+<div class="logo-item">Claro Shop</div>
+<div class="logo-item">Sears</div>
+<div class="logo-item">Sanborns</div>
+
+    </div>
+    <div class="stats-animated">
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-value">2020</div>
+        <div class="stat-label">Año de fundación</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">+<span class="counter" data-target="300">0</span></div>
+        <div class="stat-label">Distribuidores a nivel nacional</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value"><span class="counter" data-target="90">0</span>%</div>
+        <div class="stat-label">Productos con garantía mínima de 1 año</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value"><span class="counter" data-target="18">0</span></div>
+        <div class="stat-label">Meses de garantía en marca Nebro</div>
+      </div>
+    </div>
+    
+    <div class="section-label" style="margin-top:40px">Nuestras marcas</div>
+    <div class="stats-brands-logos">
+      <img src="logo.png" alt="Moreka">
+      <img src="logo.png" alt="Nebro">
+      <img src="logo.png" alt="G-Tide">
+    </div>
+    
+    <div class="section-label" style="margin-top:32px">Marketplaces activos</div>
+    <div class="stats-mps-logos">
+      <img src="logo.png" alt="Mercado Libre">
+      <img src="logo.png" alt="Amazon">
+      <img src="logo.png" alt="Walmart">
+      <img src="logo.png" alt="TikTok Shop">
+      <img src="logo.png" alt="AliExpress">
+      <img src="logo.png" alt="Claro Shop">
+      <img src="logo.png" alt="Sears">
+      <img src="logo.png" alt="Sanborns">
+    </div>
+  </div>
+    <div class="testimonials">
+      <div class="testimonial-card">
+  <div class="testimonial-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21zM15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" fill="currentColor"/></svg></div>
+  <p class="testimonial-quote">Precios de mayoreo protegidos para tu negocio. Compra por caja master en moreka.tienda y nebro.tienda con márgenes diseñados para revendedores.</p>
+  <div class="testimonial-author">
+    <div class="author-avatar">M</div>
+    <div>
+      <div class="author-name">Mayoreo</div>
+      <div class="author-role">moreka.tienda · nebro.tienda</div>
+    </div>
+  </div>
+</div>
+<div class="testimonial-card">
+  <div class="testimonial-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21zM15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" fill="currentColor"/></svg></div>
+  <p class="testimonial-quote">Venta al público final sin competir con nuestra red de distribuidores. Precios de menudeo siempre por encima del canal mayorista.</p>
+  <div class="testimonial-author">
+    <div class="author-avatar">M</div>
+    <div>
+      <div class="author-name">Menudeo</div>
+      <div class="author-role">morekashop.com · nebro.shop</div>
+    </div>
+  </div>
+</div>
+<div class="testimonial-card">
+  <div class="testimonial-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21zM15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" fill="currentColor"/></svg></div>
+  <p class="testimonial-quote">Presencia activa en Mercado Libre, Amazon, Walmart, TikTok Shop, AliExpress, Claro Shop, Sears y Sanborns. Tu producto ya está donde compra México.</p>
+  <div class="testimonial-author">
+    <div class="author-avatar">M</div>
+    <div>
+      <div class="author-name">Marketplaces</div>
+      <div class="author-role">8 plataformas principales</div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="marcas">
+  <div class="container">
+    <div class="section-header">
+      <h2>Tres marcas, un solo respaldo</h2>
+      <p>Un portafolio construido desde 2020 para cubrir cada segmento del mercado: premium, garantía superior y alta rotación.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card brand-card">
+        <div class="brand-logo-wrap">
+          <img src="logo.png" alt="Moreka" class="brand-logo-img">
+        </div>
+        <h3 class="feature-title">Moreka · Desde 2020</h3>
+        <p class="feature-desc">Nuestra marca insignia. Cargadores rápidos Power Delivery, audífonos con cancelación de ruido y bocinas Bluetooth con sonido HiFi. La preferida para rotación rápida y alta demanda. Garantía de 1 año.</p>
+      </div>
+      <div class="feature-card brand-card">
+        <div class="brand-logo-wrap">
+          <img src="logo.png" alt="Nebro" class="brand-logo-img">
+        </div>
+        <h3 class="feature-title">Nebro · 2026</h3>
+        <p class="feature-desc">Fabricantes con más de una década de experiencia. Power banks de alta capacidad, cargadores para auto y cables ultra resistentes. El 100% de sus productos con 18 meses de garantía.</p>
+      </div>
+      <div class="feature-card brand-card">
+        <div class="brand-logo-wrap">
+          <img src="logo.png" alt="G-Tide" class="brand-logo-img">
+        </div>
+        <h3 class="feature-title">G-Tide · 2025</h3>
+        <p class="feature-desc">Soluciones en audio, carga y conectividad para el mercado masivo. Productos funcionales con excelente relación costo-beneficio, diseñados para alta rotación. Garantía de 1 año.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CATALOGOS -->
+<section class="catalogs" id="catalogos">
+  <div class="container">
+    <div class="section-header">
+      <h2>Catálogos mensuales con precios de mayoreo</h2>
+      <p>Actualizamos nuestros precios cada mes para ofrecerte las tarifas más competitivas de México. Solicita tu catálogo, cotiza y empieza a vender con los mejores márgenes.</p>
+    </div>
+    <div class="catalog-grid">
+      <div class="catalog-card" data-cat="moreka">
+        <div class="catalog-icon">📱</div>
+        <h3>Catálogo Moreka</h3>
+        <p>Cargadores Power Delivery, audífonos con cancelación de ruido y bocinas HiFi. La marca insignia de Shopy Enterprise desde 2020.</p>
+        <div class="catalog-tags">Cargadores · Audífonos · Bocinas · Cables</div>
+        <a href="#contacto" class="btn btn-primary">Solicitar PDF</a>
+      </div>
+      <div class="catalog-card" data-cat="nebro">
+        <div class="catalog-icon">🔋</div>
+        <h3>Catálogo Nebro</h3>
+        <p>Power banks de alta capacidad, cargadores para auto y cables ultra resistentes. 100% de productos con 18 meses de garantía.</p>
+        <div class="catalog-tags">Baterías · Cargadores · Cables · Accesorios</div>
+        <a href="#contacto" class="btn btn-primary">Solicitar PDF</a>
+      </div>
+      <div class="catalog-card" data-cat="gtide">
+        <div class="catalog-icon">🎧</div>
+        <h3>Catálogo G-Tide</h3>
+        <p>Audio portable, bocinas Bluetooth y manos libres con tecnología de sonido optimizada. Alta rotación para distribuidores.</p>
+        <div class="catalog-tags">Audio · Carga · Conectividad</div>
+        <a href="#contacto" class="btn btn-primary">Solicitar PDF</a>
+      </div>
+    </div>
+    <p class="catalog-note">Los catálogos PDF se envían sin costo a distribuidores registrados. Completa el <a href="#contacto">formulario de contacto</a> y recibe la edición del mes en tu correo.</p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="garantias">
+  <div class="container">
+    <div class="section-header">
+      <h2>La confianza que respaldamos por escrito</h2>
+      <p>El 90% de nuestros productos cuentan con al menos un año de garantía por cambio físico. Nebro llega a 18 meses: un estándar que pocos en la industria pueden igualar. El cliente envía el producto, nosotros evaluamos y cubrimos la guía de regreso.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="tier-card">
+  
+  <h3 class="tier-name">Moreka</h3>
+  <p class="tier-desc">Marca insignia · Audio y carga premium</p>
+  <div class="tier-price">
+    <span class="price-amount">12</span>
+    <span class="price-period">meses de garantía</span>
+  </div>
+  <ul class="tier-features">
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Cambio físico del producto</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Evaluación técnica del producto</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> No aplica en caso de mal uso</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Guía de regreso pagada por Shopy</li>
+</ul>
+  <a href="https://share.google/p46zenxSCTHhTPi1x" target="_blank" class="btn btn-outline">Ver política completa ↗</a>
+</div>
+<div class="tier-card tier-highlighted">
+  <div class="tier-badge">Garantía Superior</div>
+  <h3 class="tier-name">Nebro</h3>
+  <p class="tier-desc">La garantía más sólida del mercado</p>
+  <div class="tier-price">
+    <span class="price-amount">18</span>
+    <span class="price-period">meses de garantía</span>
+  </div>
+  <ul class="tier-features">
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 100% del catálogo cubierto 18 meses</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Cambio físico del producto</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Evaluación técnica del producto</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> No aplica en caso de mal uso</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Guía de regreso pagada por Shopy</li>
+</ul>
+  <a href="https://share.google/p46zenxSCTHhTPi1x" target="_blank" class="btn btn-primary">Ver política completa ↗</a>
+</div>
+<div class="tier-card">
+  <h3 class="tier-name">G-Tide</h3>
+  <p class="tier-desc">Mercado masivo · Alta rotación</p>
+  <div class="tier-price">
+    <span class="price-amount">12</span>
+    <span class="price-period">meses de garantía</span>
+  </div>
+  <ul class="tier-features">
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Cambio físico del producto</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Evaluación técnica del producto</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> No aplica en caso de mal uso</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Guía de regreso pagada por Shopy</li>
+</ul>
+  <a href="https://share.google/p46zenxSCTHhTPi1x" target="_blank" class="btn btn-outline">Ver política completa ↗</a>
+</div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- POLITICA DE GARANTIAS -->
+<section class="policy" id="politica">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:32px">
+      <h2>Política de Garantías</h2>
+      <p>En Shopy Enterprise no ofrecemos refacciones, piezas, componentes ni mano de obra. Nuestro proceso es simple: <strong>cambio físico del producto</strong>.</p>
+    </div>
+    <div class="policy-grid">
+      <div class="policy-card">
+        <h3>✅ Conceptos cubiertos</h3>
+        <ul>
+          <li>Cambio físico del producto defectuoso</li>
+          <li>Evaluación técnica del producto por nuestro equipo</li>
+          <li>Guía de regreso pagada por Shopy Enterprise</li>
+          <li>Productos sin marca de fábrica: 3 meses directamente con nosotros</li>
+        </ul>
+      </div>
+      <div class="policy-card">
+        <h3>📋 Procedimiento</h3>
+        <ul>
+          <li>El cliente envía el producto a nuestras instalaciones</li>
+          <li>Nuestro equipo evalúa el producto (no aplica mal uso)</li>
+          <li>Si aplica garantía, enviamos el producto de regreso — nosotros pagamos la guía</li>
+          <li>Adjunta el recibo o factura original de compra</li>
+        </ul>
+      </div>
+      <div class="policy-card">
+        <h3>⚠️ No aplica en caso de</h3>
+        <ul>
+          <li>Mal uso o uso inadecuado del producto</li>
+          <li>Reparación o intervención no autorizada</li>
+          <li>Daños físicos, golpes o caídas</li>
+          <li>Oxidación o contacto con líquidos</li>
+        </ul>
+      </div>
+    </div>
+    <div class="policy-address">
+      <strong>¿Necesitas más detalles?</strong> Consulta la política completa de garantías en 
+      <a href="https://share.google/p46zenxSCTHhTPi1x" target="_blank">Garantías – Nebro Shop ↗</a> · 
+      <a href="mailto:soporte@shopyenterprise.com">soporte@shopyenterprise.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <div class="cta-box">
+      <h2>Únete a la red de más de 300 distribuidores</h2>
+      <p>Catálogos mensuales con precios de mayoreo, márgenes protegidos y garantías que nadie más iguala. Cotiza hoy y empieza a vender esta misma semana.</p>
+      <a href="#contacto" class="btn">Hablar con un asesor <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polyline points="12 5 19 12 12 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTACTO -->
+<section class="contact" id="contacto">
+  <div class="container">
+    <div class="section-header">
+      <h2>Cotiza y únete a la red mayorista</h2>
+      <p>¿Tienes tienda física, vendes en marketplaces o buscas volumen por caja master? Cuéntanos qué necesitas y un asesor te responderá el mismo día hábil.</p>
+    </div>
+    <div class="contact-grid">
+      <form class="contact-form" id="b2b-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-nombre">Nombre completo *</label>
+            <input type="text" id="f-nombre" required placeholder="Tu nombre">
+          </div>
+          <div class="form-field">
+            <label for="f-correo">Correo electrónico *</label>
+            <input type="email" id="f-correo" required placeholder="tu@empresa.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-tel">Teléfono / WhatsApp *</label>
+            <input type="tel" id="f-tel" required placeholder="33 0000 0000">
+          </div>
+          <div class="form-field">
+            <label for="f-razon">Razón social</label>
+            <input type="text" id="f-razon" placeholder="Tu empresa S.A. de C.V.">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-tipo">Tipo de cliente *</label>
+            <select id="f-tipo" required>
+              <option value="">Selecciona una opción</option>
+              <option>Mayorista / Distribuidor</option>
+              <option>Tienda Física</option>
+              <option>Vendedor de Marketplace</option>
+              <option>E-commerce</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="f-marcas">Marcas de interés *</label>
+            <select id="f-marcas" required>
+              <option value="">Selecciona una opción</option>
+              <option>Moreka</option>
+              <option>Nebro</option>
+              <option>G-Tide</option>
+              <option>Todas</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="f-mensaje">Mensaje</label>
+          <textarea id="f-mensaje" rows="4" placeholder="Cuéntanos qué productos o volumen buscas..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Enviar solicitud de cotización</button>
+        <p class="form-note">Al enviar, se abrirá WhatsApp con tu solicitud lista para enviarse a nuestro equipo de ventas.</p>
+      </form>
+      <div class="contact-info">
+        <a class="wa-cta" href="https://wa.me/523312345678?text=Hola%2C%20quiero%20cotizar%20productos%20de%20mayoreo%20con%20Shopy%20Enterprise" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          <span><strong>WhatsApp Corporativo</strong><br>Respuesta inmediata en horario hábil</span>
+        </a>
+        <div class="info-block">
+          <h4>📧 Correos directos</h4>
+          <p><a href="mailto:ventas@shopyenterprise.com">ventas@shopyenterprise.com</a> — cotizaciones y mayoreo<br>
+          <a href="mailto:soporte@shopyenterprise.com">soporte@shopyenterprise.com</a> — garantías y soporte</p>
+        </div>
+        <div class="info-block">
+          <h4>🕐 Horario de atención</h4>
+          <p>Lunes a Viernes · 10:30 am a 7:00 pm corrido (Horario Centro)<br>Sábado · 10:30 am a 5:00 pm corrido</p>
+        </div>
+        <div class="info-block">
+          <h4>📍 Oficinas</h4>
+          <p>C. Colón 172, Zona Centro,<br>44100 Guadalajara, Jalisco, México</p>
+        </div>
+      </div>
+    </div>
+    <div class="map-wrap">
+      <iframe title="Mapa: Shopy Enterprise, C. Colón 172, Zona Centro, Guadalajara" src="https://www.google.com/maps?q=C.+Col%C3%B3n+172,+Zona+Centro,+44100+Guadalajara,+Jal.,+M%C3%A9xico&output=embed" width="100%" height="340" style="border:0;border-radius:12px" loading="lazy" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <strong>Shopy Enterprise</strong>
+        <p>Distribución mayorista de tecnología y accesorios desde el año 2020.<br>www.shopyenterprise.com</p>
+      </div>
+      <div class="footer-col">
+        <strong>Mayoreo</strong>
+        <p><a href="https://moreka.tienda" target="_blank" rel="noopener">moreka.tienda</a><br><a href="https://nebro.tienda" target="_blank" rel="noopener">nebro.tienda</a></p>
+      </div>
+      <div class="footer-col">
+        <strong>Menudeo</strong>
+        <p><a href="https://morekashop.com" target="_blank" rel="noopener">morekashop.com</a><br><a href="https://nebro.shop" target="_blank" rel="noopener">nebro.shop</a></p>
+      </div>
+      <div class="footer-col">
+        <strong>Contacto</strong>
+        <p>C. Colón 172, Zona Centro,<br>44100 Guadalajara, Jal.<br>
+        <a href="mailto:ventas@shopyenterprise.com">ventas@shopyenterprise.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2020 - 2026 Shopy Enterprise. Todos los derechos reservados. · Moreka · Nebro · G-Tide</div>
+  </div>
+</footer>
+
+
+<!-- BOTON FLOTANTE WHATSAPP -->
+<a class="wa-float" href="https://wa.me/523312345678?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20mayoreo" target="_blank" rel="noopener" aria-label="WhatsApp Shopy Enterprise">
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Filtro de catálogos por categoría
+document.querySelectorAll('.chip').forEach(function(chip){
+  chip.addEventListener('click', function(){
+    document.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('active'); });
+    chip.classList.add('active');
+    var cat = chip.getAttribute('data-cat');
+    document.querySelectorAll('.catalog-card').forEach(function(card){
+      var match = cat === 'all' || card.getAttribute('data-cats').indexOf(cat) !== -1;
+      card.style.opacity = match ? '1' : '0.35';
+      card.style.transform = match ? 'scale(1)' : 'scale(0.98)';
+    });
+  });
+});
+// Formulario B2B -> compone mensaje de WhatsApp (compatible con hosting estático IONOS)
+document.getElementById('b2b-form').addEventListener('submit', function(ev){
+  ev.preventDefault();
+  var v = function(id){ return document.getElementById(id).value.trim(); };
+  var msg = 'NUEVA SOLICITUD DE COTIZACIÓN - Shopy Enterprise\n' +
+    'Nombre: ' + v('f-nombre') + '\n' +
+    'Correo: ' + v('f-correo') + '\n' +
+    'Teléfono: ' + v('f-tel') + '\n' +
+    'Razón social: ' + (v('f-razon') || 'N/D') + '\n' +
+    'Tipo de cliente: ' + v('f-tipo') + '\n' +
+    'Marcas de interés: ' + v('f-marcas') + '\n' +
+    'Mensaje: ' + (v('f-mensaje') || 'N/D');
+  window.open('https://wa.me/523312345678?text=' + encodeURIComponent(msg), '_blank');
+});
+</script>
+
+
+<script>
+// Animación de contadores al entrar en viewport
+const counters = document.querySelectorAll('.counter');
+const animateCounter = (el) => {
+  const target = parseInt(el.getAttribute('data-target'));
+  const duration = 2000;
+  const start = performance.now();
+  const startVal = parseInt(el.textContent) || 0;
+  const step = (now) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(startVal + (target - startVal) * ease);
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+};
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => observer.observe(c));
+</script>
+
+</body>
+</html>
